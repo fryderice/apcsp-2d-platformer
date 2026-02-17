@@ -21,3 +21,8 @@ tiles.setCurrentTilemap(tilemap`level1`)
 scene.cameraFollowSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 14))
 mySprite.vy = 200;
+controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
+    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+        mySprite.vy = -200;
+    }
+})
