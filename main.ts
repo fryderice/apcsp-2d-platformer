@@ -20,9 +20,17 @@ controller.moveSprite(mySprite, 100, 0)
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.cameraFollowSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 14))
-mySprite.vy = 200;
+mySprite.ay = 200;
+
+// lets player jump with either the A button or up button
 controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -200;
+        mySprite.vy += -125;
     }
 })
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+        mySprite.vy += -125;
+    }
+})
+
