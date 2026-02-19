@@ -37,8 +37,21 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 
+scene.onOverlapTile(SpriteKind.Player, assets.tile`lava`, function (sprite, location) {
+    // Visual feedback
+    sprite.startEffect(effects.fire, 200)
+    scene.cameraShake(4, 500)
+    
+    // Consequence: Lose a life and reset position
+    info.changeLifeBy(-1)
+    
+    // Optional: Move player back to start so they don't instantly die again
+    //tiles.placeOnRandomTile(sprite, assets.tile`startNode`)
+})
+
 //Main
 
+info.setLife(3)
 controller.moveSprite(mySprite, 100, 0)
 tiles.setCurrentTilemap(tilemap`level1`)
 scene.cameraFollowSprite(mySprite)
