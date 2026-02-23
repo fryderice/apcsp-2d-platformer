@@ -19,6 +19,8 @@ let mySprite = sprites.create(img`
      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
  `, SpriteKind.Player)
 
+let level = 0
+
 //Constants
 
 //Functions
@@ -67,6 +69,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lava`, function (sprite, loca
     
     // Optional: Move player back to start so they don't instantly die again
     //tiles.placeOnRandomTile(sprite, assets.tile`startNode`)
+})
+
+scene.onOverlapTile(SpriteKind.Player, assets.tile`flag`, function(sprite: Sprite, location: tiles.Location) {
+    level++
 })
 
 //Main
