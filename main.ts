@@ -25,9 +25,25 @@ let mySprite = sprites.create(img`
 
 function createMushroom (){
     let mushroom = sprites.create(assets.image`mushroom`,SpriteKind.Enemy)
+    mushroom.ay = 200
+    mushroom.vx = 0
 }
 
 //Event Handlers
+
+scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
+    // If the mushroom hits the floor (bottom collision)
+    if (sprite.isHittingTile(CollisionDirection.Bottom)) {
+        // If it isn't moving yet, start sprinting right
+        if (sprite.vx == 0) {
+            sprite.vx = -60
+        }
+    }
+
+    if (sprite.isHittingTile(CollisionDirection.Left)) {
+        sprite.destroy(effects.disintegrate)
+    }
+})
 
 // lets player jump with either the A button or up button
 controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
@@ -55,6 +71,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lava`, function (sprite, loca
 
 //Main
 
+createMushroom()
 info.setLife(3)
 controller.moveSprite(mySprite, 100, 0)
 tiles.setCurrentTilemap(tilemap`level1`)
