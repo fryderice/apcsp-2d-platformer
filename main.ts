@@ -23,6 +23,10 @@ let mySprite = sprites.create(img`
 
 //Functions
 
+function createMushroom (){
+    let mushroom = sprites.create(assets.image`mushroom`,SpriteKind.Enemy)
+}
+
 //Event Handlers
 
 // lets player jump with either the A button or up button
