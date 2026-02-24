@@ -31,6 +31,10 @@ function createMushroom (){
     mushroom.vx = 0
 }
 
+function newCheckPoint (){
+
+}
+
 //Event Handlers
 
 scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
@@ -73,6 +77,14 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lava`, function (sprite, loca
 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`flag`, function(sprite: Sprite, location: tiles.Location) {
     level++
+    if(level == 1){
+        tiles.setCurrentTilemap(tilemap`level2`)
+    }
+})
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, otherSprite: Sprite) {
+    otherSprite.destroy(effects.disintegrate)
+    info.changeLifeBy(-1)
 })
 
 //Main
