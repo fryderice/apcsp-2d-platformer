@@ -4,6 +4,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "mushroom"
     },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAICIiAAAAACAiIiIAAAAAIiIiAgAAAAAiIiICAAAAIPL1VQUAAOAgVfVfAAAA7l9V9V/u7u4OgFX1XwAAAACA+PVVBQAAAACIiIgIAAAAAIiIiAgAAAAAgIiIiAAAAAAAgIiIAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "umbrella"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
