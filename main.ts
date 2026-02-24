@@ -34,15 +34,15 @@ scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
     }
 })
 
-// lets player jump with either the A button or up button
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy += -125;
-    }
-})
+// player jumps with up (W on keyboard), and floats with A (space on keyboard)
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy += -125;
+        mySprite.vy = -125
+    }
+})
+controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
+    if (!(mySprite.isHittingTile(CollisionDirection.Bottom)) && controller.A.isPressed()) {
+        mySprite.vy = 0
     }
 })
 
