@@ -1,5 +1,5 @@
 {
-    "name": "2D Platformer",
+    "name": "2D Platformer - Copy",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -17,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.0.7",
+        "target": "4.0.8",
         "targetId": "arcade"
     },
     "supportedTargets": [
