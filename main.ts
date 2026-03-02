@@ -71,37 +71,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
     info.changeLifeBy(-1)
 })
 
-//Event Handlers
-
 game.onUpdate(function() {
     while (username == "null" || username == ""){
         username = game.askForString("invalid name")
-    }
-})
-
-scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
-    // If the mushroom hits the floor (bottom collision)
-    if (sprite.isHittingTile(CollisionDirection.Bottom)) {
-        // If it isn't moving yet, start sprinting right
-        if (sprite.vx == 0) {
-            sprite.vx = -60
-        }
-    }
-
-    if (sprite.isHittingTile(CollisionDirection.Left)) {
-        sprite.destroy(effects.disintegrate)
-    }
-})
-
-// player jumps with up (W on keyboard), and floats with A (space on keyboard)
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -125
-    }
-})
-controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
-    if (!(mySprite.isHittingTile(CollisionDirection.Bottom)) && controller.A.isPressed()) {
-        mySprite.vy = 0
     }
 })
 
