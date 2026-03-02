@@ -2,6 +2,7 @@
 
 let mySprite = sprites.create(assets.image`umbrella`, SpriteKind.Player)
 let username = game.askForString("What's your username?")
+let currentLevel = 0
 
 //Constants
 
@@ -104,4 +105,4 @@ scene.cameraFollowSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 12))
 mySprite.ay = 200;
 scene.setBackgroundColor(9)
-let currentLevel = 0;
+scene.setBackgroundColor(9)
