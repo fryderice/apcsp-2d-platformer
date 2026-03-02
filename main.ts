@@ -2,7 +2,6 @@
 
 let mySprite = sprites.create(assets.image`umbrella`, SpriteKind.Player)
 let username = game.askForString("What's your username?")
-let level = 0
 
 //Constants
 
@@ -44,6 +43,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.vy = -125
     }
 })
+
 controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
     if (!(mySprite.isHittingTile(CollisionDirection.Bottom)) && controller.A.isPressed()) {
         mySprite.vy = 0;
