@@ -74,7 +74,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
 //Event Handlers
 
 game.onUpdate(function() {
-    while (username == "illegal"){
+    while (username == "null" || username == ""){
         username = game.askForString("invalid name")
     }
 })
