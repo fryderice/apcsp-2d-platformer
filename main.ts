@@ -22,6 +22,13 @@ function setNextLevel (){
     tiles.placeOnRandomTile(mySprite, assets.tile`spawnPoint`)
 }
 
+function splashIntro(username: String) {
+    game.splash("Hello, " + username + "!")
+    game.splash("Jump using the up button!")
+    game.splash("While holding down up, hold A to float!")
+    game.splash("Reach the flag to win!")
+}
+
 //Event Handlers
 
 scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
@@ -97,6 +104,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
 
 //Main
 
+splashIntro(username);
 createMushroom()
 info.setLife(3)
 controller.moveSprite(mySprite, 75, 0)
