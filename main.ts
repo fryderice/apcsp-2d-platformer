@@ -6,7 +6,7 @@ let currentLevel = 0
 
 //Constants
 
-let levels = [tilemap`levelOne`, tilemap`levelTwo`, tilemap`levelThree`]
+const levels = [tilemap`levelOne`, tilemap`levelTwo`, tilemap`levelThree`]
 
 //Functions
 
