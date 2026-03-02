@@ -1,7 +1,7 @@
 //Global 
 
 let mySprite = sprites.create(assets.image`umbrella`, SpriteKind.Player)
-
+let username = game.askForString("What's your username?")
 let level = 0
 
 //Constants
@@ -71,37 +71,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
     info.changeLifeBy(-1)
 })
 
-//Main
-
-createMushroom()
-info.setLife(3)
-controller.moveSprite(mySprite, 100, 0)
-tiles.setCurrentTilemap(tilemap`level1`)
-scene.cameraFollowSprite(mySprite)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 14))
-mySprite.ay = 200;
-//Global 
-
-let x = "x"
-let y = "y"
-
-//Constants
-
-//Functions
-
-function newCheckPoint (posType:string){
-    if(posType == "x"){ //this must be manually coded, because for each level, you're gonna have to specify which flag is the checkpoint
-        return 0
-    }
-    else if(posType == "y"){
-        return 0 
-    }
-    else{
-        return 0 //this means that you forgot to call the function with an valid argument
-    }
-}
-
 //Event Handlers
+
+game.onUpdate(function() {
+    while (username == "illegal"){
+        username = game.askForString("invalid name")
+    }
+})
 
 scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
     // If the mushroom hits the floor (bottom collision)
@@ -144,11 +120,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lava`, function (sprite, loca
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, otherSprite: Sprite) {
     otherSprite.destroy(effects.disintegrate)
     info.changeLifeBy(-1)
-})
-
-info.onLifeZero(function() {
-    mySprite.x = newCheckPoint(x)
-    mySprite.y = newCheckPoint(y)
 })
 
 //Main
