@@ -88,6 +88,12 @@
         "tilemapTile": true,
         "displayName": "spawnPoint"
     },
+    "tile15": {
+        "data": "hwQQABAAAAAAAAAAAAD//wAAAAAA8L/7AAAAAPD/u/sAAADw/7u7+wAA8P+7u7v7APD/3bu7u/vw/929u7u7+//dvbu7u7v7/7u7u7u7u/zw/7u7u7u7/ADw/7u7u7v8AADw/7u7y/wAAADw/7vL/AAAAADw/8z8AAAAAADwz/wAAAAAAAD//w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "spike"
+    },
     "level1": {
         "id": "level1",
         "mimeType": "application/mkcd-tilemap",

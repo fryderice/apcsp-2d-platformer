@@ -1,7 +1,6 @@
 //Global 
 
 let mySprite = sprites.create(assets.image`umbrella`, SpriteKind.Player)
-let username = game.askForString("What's your username?")
 let currentLevel = 0
 
 //Constants
@@ -22,11 +21,20 @@ function setNextLevel (){
     tiles.placeOnRandomTile(mySprite, assets.tile`spawnPoint`)
 }
 
+function askForUser() {
+    let username = game.askForString("What's your username?")
+    return username;
+}
+
 function splashIntro(username: String) {
-    game.splash("Hello, " + username + "!")
+    game.splash("Hello, " + askForUser() + "!")
     game.splash("Jump using the up button!")
     game.splash("While holding down up, hold A to float!")
     game.splash("Reach the flag to win!")
+}
+
+function ifWin(player: Sprite) {
+    
 }
 
 //Event Handlers
@@ -80,8 +88,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
 })
 
 game.onUpdate(function() {
-    while (username == "null" || username == ""){
-        username = game.askForString("invalid name")
+    while (askForUser() == "null" || askForUser() == ""){
+        game.askForString("Invalid name.")
     }
 })
 
@@ -104,7 +112,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
 
 //Main
 
-splashIntro(username);
+splashIntro(askForUser());
 createMushroom()
 info.setLife(3)
 controller.moveSprite(mySprite, 75, 0)
