@@ -5,6 +5,7 @@ let currentLevel = 0
 
 //Constants
 
+//array of tilemaps
 const levels = [tilemap`levelOne`, tilemap`levelTwo`, tilemap`levelThree`]
 
 //Functions
@@ -22,10 +23,12 @@ function setNextLevel (){
 }
 
 function askForUser() {
+    //function with a return
     let username = game.askForString("What's your username?")
     return username;
 }
 
+//function with a parameter
 function splashIntro(username: String) {
     game.splash("Hello, " + askForUser() + "!")
     game.splash("Jump using the up button!")
@@ -43,6 +46,7 @@ scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
     // If the mushroom hits the floor (bottom collision)
     if (sprite.isHittingTile(CollisionDirection.Bottom)) {
         // If it isn't moving yet, start sprinting right
+        //Some of our conditionals
         if (sprite.vx == 0) {
             sprite.vx = -60
         }
@@ -76,6 +80,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
 })
 
 game.onUpdate(function() {
+    //while loop & user input here
     while (askForUser() == "null" || askForUser() == ""){
         game.askForString("Invalid name.")
     }
