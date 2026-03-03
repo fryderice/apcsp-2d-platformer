@@ -82,13 +82,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
     info.changeLifeBy(-1)
 })
 
-/*game.onUpdate(function() {
-    //while loop & user input here
-    while (askForUser() == "null" || askForUser() == ""){
-        game.askForString("Invalid name.")
-    }
-})*/
-
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, otherSprite: Sprite) {
     otherSprite.destroy(effects.disintegrate)
     info.changeLifeBy(-1)
