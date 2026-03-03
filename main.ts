@@ -25,12 +25,15 @@ function setNextLevel (){
 function askForUser() {
     //function with a return
     let username = game.askForString("What's your username?")
+    while (username == "null" || username == "") {
+        username = game.askForString("Invalid name.")
+    }
     return username;
 }
 
 //function with a parameter
 function splashIntro(username: String) {
-    game.splash("Hello, " + askForUser() + "!")
+    game.splash("Hello, " + username + "!")
     game.splash("Jump using the up button!")
     game.splash("While holding down up, hold A to float!")
     game.splash("Reach the flag to win!")
@@ -79,12 +82,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, 
     info.changeLifeBy(-1)
 })
 
-game.onUpdate(function() {
+/*game.onUpdate(function() {
     //while loop & user input here
     while (askForUser() == "null" || askForUser() == ""){
         game.askForString("Invalid name.")
     }
-})
+})*/
 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function(sprite: Sprite, otherSprite: Sprite) {
     otherSprite.destroy(effects.disintegrate)
